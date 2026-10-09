@@ -27,3 +27,19 @@ authorities as evidence for a newly built package.
 `node scripts/check-release-target.mjs` verifies repository ownership and config.
 A local pre-push hook additionally rejects other destinations. To install that
 hook after cloning this repository: `git config core.hooksPath .githooks`.
+
+## Required installation acceptance
+
+The source repository's `docs/release/INSTALLATION_ACCEPTANCE.md` defines native
+Windows x64 / Mac arm64 acceptance. Candidate builds are separate from public
+releases. Each platform needs a report bound to final installer bytes and the
+agreed source commit; pending, failed or changed evidence blocks acceptance.
+Run before uploading a platform's release:
+
+```sh
+node scripts/verify-candidate.mjs --source /path/to/ocupathif_new --report /path/to/installation-acceptance.json --commit FULL_SOURCE_COMMIT
+```
+
+Review the actual native logs/screenshots, not just the command exit code.
+This command never uploads assets or enables Pages. Signing, notarization,
+clean-machine testing and live Nina update endpoint verification are required.

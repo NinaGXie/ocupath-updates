@@ -1,0 +1,6 @@
+#!/bin/sh
+# User ownership boundary: this clone only pushes to Nina's matching repository.
+case "$2" in
+  git@github.com:NinaGXie/ocupath-updates.git|https://github.com/NinaGXie/ocupath-updates.git|https://github.com/NinaGXie/ocupath-updates) exit 0 ;;
+  *) echo "Push blocked: this checkout only publishes to NinaGXie/ocupath-updates." >&2; exit 1 ;;
+esac

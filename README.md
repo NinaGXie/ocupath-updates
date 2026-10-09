@@ -42,4 +42,6 @@ node scripts/verify-candidate.mjs --source /path/to/ocupathif_new --report /path
 
 Review the actual native logs/screenshots, not just the command exit code.
 This command never uploads assets or enables Pages. Signing, notarization,
-clean-machine testing and live Nina update endpoint verification are required.
+clean-machine testing and packaged Nina update configuration checks are required.
+After staging accepted assets, verify public downloads and endpoint responses
+before enabling the production update feed or announcing availability.
